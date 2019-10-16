@@ -34,9 +34,18 @@ import CustomInput from 'components/CustomInput/CustomInput.js';
 import validator from 'email-validator';
 import { AnimateOnChange } from 'react-animation';
 
+// import image
+import DroneImg from 'assets/img/Drone.jpg';
+
+import config from '../../config';
+import integrate from '../../integrate';
+
 import styles from 'assets/jss/material-kit-react/views/components.js';
 import './Footer.scss';
+import './Components.scss';
 const useStyles = makeStyles(styles);
+
+const subscribeEndpoint = config.endpoints.subscribe;
 
 export default function Components(props) {
   const [isNotSub, setIsNotSub] = useState(true);
@@ -57,12 +66,14 @@ export default function Components(props) {
 
   const handleSmash = () => {
     const inputMail = textInput.current.value;
-    if (validator.validate(inputMail)) setIsNotSub(false);
-    else setShowMailErr(true);
+    if (validator.validate(inputMail)) {
+      setIsNotSub(false);
+      integrate.postData(subscribeEndpoint, { email: inputMail });
+    } else setShowMailErr(true);
   };
 
   return (
-    <div>
+    <div className='landing-page'>
       {/* <Header
         rightLinks={<HeaderLinks />}
         fixed
@@ -74,7 +85,7 @@ export default function Components(props) {
         {...rest}
       /> */}
       {/*here in parallax a background image can be placed with image={require('assets/img/bg4.jpg')} */}
-      <Parallax>
+      <Fragment>
         <div className={classes.container}>
           <AnimateOnChange>
             {isNotSub ? (
@@ -122,12 +133,32 @@ export default function Components(props) {
               </Fragment>
             )}
           </AnimateOnChange>
+          <img
+            className='drone'
+            style={{
+              width: '40%',
+              position: 'absolute',
+              right: '0'
+            }}
+            src={DroneImg}
+            alt='Drone carrying a mobile'
+          />
         </div>
-      </Parallax>
+      </Fragment>
+      <br />
+      <h2
+        className='carousel-title'
+        style={{
+          fontWeight: '400',
+          letterSpacing: '1px'
+        }}
+      >
+        Our Readers Speak...
+      </h2>
       <SectionCarousel />
-      <div className='mobile-footer'>
+      {/* <div className='mobile-footer'>
         <MobileFooter />
-      </div>
+      </div> */}
 
       {/* <div className={classNames(classes.main, classes.mainRaised)}>
         <SectionBasics />
