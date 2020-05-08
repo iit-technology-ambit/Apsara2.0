@@ -42,7 +42,7 @@ export default function Cards(props) {
       <CardBody>
         <div className='issue-data'>
           <a href={props.link} className='download'>
-            download
+            Read
           </a>
           <span className='date'>
             {parseMonthName(props.month)}, {props.year}

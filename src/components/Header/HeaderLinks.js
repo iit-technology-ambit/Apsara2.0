@@ -49,7 +49,7 @@ export default function HeaderLinks(props) {
               to='/newsletter'
               style={{ color: isNewsLetterActive() ? '#0F8797' : '#555555' }}
             >
-              Newsletter
+              Techletter
             </Link>
           </h1>
         </ListItem>

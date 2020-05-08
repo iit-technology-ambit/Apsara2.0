@@ -5,13 +5,20 @@
   src: url('../ReadingPage/MinionPro-Regular.otf');
 }
 
+@font-face {
+  font-family: "Segoe UI";
+  src: local("../../assets/fonts/Segoe UI Bold.ttf");
+}
+
 #title {
- font-family:  "Vidaloka", serif !important;
+//  font-family:  "Vidaloka", serif !important;
+font-family: "Segoe UI" !important;
 
 }
 
 #subtitle {
-  font-family: MinionPro !important;
+  // font-family: MinionPro !important;
+  font-family: "Segoe UI" !important;
   font-size: 1.8em;
 } 
 
@@ -97,7 +104,8 @@
 .form {
   display: flex;
   input::placeholder {
-    font-family: MinionPro !important;
+    // font-family: MinionPro !important;
+    font-family: "Segoe UI" !important;
   }
 }
 
@@ -119,7 +127,8 @@
   padding: 0px 25px;
   font-size: 20px;
   transition: .2s;
-  font-family: MinionPro !important;
+  // font-family: MinionPro !important;
+  font-family: "Segoe UI" !important;
 }
 
 .tryIt:hover {

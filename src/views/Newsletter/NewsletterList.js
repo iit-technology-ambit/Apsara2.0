@@ -3,25 +3,29 @@ import "./NewsletterList.scss";
 import newsletters from "./NewslettersContent";
 import Button from "../../components/CustomButtons/Button";
 export default function NewsletterList(props) {
-  const [gDepArr, setGdepArr] = useState([]);
+  // const [gDepArr, setGdepArr] = useState([]);
   const [latestArr, setLatestArr] = useState([]);
-  const [sorBtnTitle, setSorBtnTitle] = useState("sort by latest");
+  const [sorBtnTitle, setSorBtnTitle] = useState("sort by oldest");
   useEffect(() => {
-    const gDepArr = newsletters.slice(0, 5);
-    setGdepArr(gDepArr);
+    // const gDepArr = newsletters.slice(0, 5);
+    // setGdepArr(gDepArr);
 
-    const latestArr = newsletters.slice(5);
+    // const latestArr = newsletters.slice(5);
+    // setLatestArr(latestArr);
+
+    const latestArr = newsletters.reverse();
     setLatestArr(latestArr);
+
   }, []);
 
   function handleClick(href) {
     props.history.push(`/newsletter/${href}`);
   }
 
-  function sortGDList() {
+  function sortList() {
     // reverse the list
-    const gDepArrReverse = gDepArr.reverse();
-    setGdepArr(gDepArrReverse);
+    const latestArrReversed = latestArr.reverse();
+    setLatestArr(latestArrReversed);
     
     // change the button content
     if (sorBtnTitle === "sort by latest") 
@@ -35,6 +39,9 @@ export default function NewsletterList(props) {
     <div>
       <div className="newsletter-list">
         <h1>Catch the Latest !</h1>
+        <Button color="info" round onClick={() => sortList()}>
+          {sorBtnTitle}
+        </Button>
         {latestArr.map((item) => {
           return (
             <div className="indiv-card" onClick={() => handleClick(item.href)}>
@@ -46,7 +53,7 @@ export default function NewsletterList(props) {
           );
         })}
         <br />
-        <h1>Great Depression Again ?</h1>
+        {/* <h1>Great Depression Again ?</h1>
         <Button color="info" round onClick={() => sortGDList()}>
           {sorBtnTitle}
         </Button>
@@ -59,7 +66,7 @@ export default function NewsletterList(props) {
               </div>
             </div>
           );
-        })}
+        })} */}
       </div>
     </div>
   );

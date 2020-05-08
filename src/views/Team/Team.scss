@@ -2,24 +2,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 @font-face {
   font-family: MinionPro;
-  src: url('../ReadingPage/MinionPro-Regular.otf');
+  src: url("../ReadingPage/MinionPro-Regular.otf");
+}
+@font-face {
+  font-family: "Segoe UI";
+  src: local("../../assets/fonts/Segoe UI Bold.ttf");
 }
 
 .team-intro {
   text-align: center;
   margin-top: 8%;
 
-  .title{
-    font-family: "Vidaloka", serif !important;
   
+
+  .title {
+    // font-family: "Vidaloka", serif !important;
+
+    font-family: "Segoe UI" !important;
   }
-  
+
   .subtitle {
-    font-family: MinionPro  !important; 
+    // font-family: MinionPro  !important;
+    font-family: "Segoe UI" !important;
   }
+
+ 
 }
-
-
 
 .team {
   // transform: translateY(12%);
