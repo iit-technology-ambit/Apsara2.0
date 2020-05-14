@@ -161,7 +161,7 @@ const TeamList = [
     name: 'Soham Saha',
     role: 'Product Designer',
     fb: 'https://www.facebook.com/profile.php?id=100005447295704',
-    ln: ''
+    ln: 'https://www.linkedin.com/in/soham-saha-0700a71aa/'
   },
   {
     img: images['Soumyadeep.jpg'],
